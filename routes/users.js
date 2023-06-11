@@ -14,7 +14,7 @@ router.get("/:id", (req, res) => {
 });
 
 router.post("/", (req, res) => {
-  res.send("Create user");
+  res.send("Create users");
 });
 
 router
