@@ -6,15 +6,12 @@ router.get("/", (req, res) => {
 });
 
 router.get("/new", (req, res) => {
-  res.send("new user");
-});
-
-router.get("/:id", (req, res) => {
-  res.send(`Get User with ID ${req.params.id}`);
+  res.render("users/new", { firstName: "Test" });
 });
 
 router.post("/", (req, res) => {
-  res.send("Create users");
+  console.log(req.body.firstName);
+  res.send("hi");
 });
 
 router
@@ -26,7 +23,7 @@ router
   .put((req, res) => {
     res.send(`update user with ID ${req.params.id}`);
   })
-  .delete("/:id", (req, res) => {
+  .delete((req, res) => {
     res.send(`delete user with ID ${req.params.id}`);
   });
 
