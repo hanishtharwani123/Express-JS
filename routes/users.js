@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 router.get("/", (req, res) => {
+  console.log(req.query.name);
   res.send("user list");
 });
 
@@ -10,8 +11,17 @@ router.get("/new", (req, res) => {
 });
 
 router.post("/", (req, res) => {
-  console.log(req.body.firstName);
-  res.send("hi");
+  // console.log(req.body.firstName);
+  // res.send("hi");
+
+  const isValid = true;
+  if (isValid) {
+    users.push({ firstName: "req.body.firstName" });
+    res.redirect(`/users/${users.length - 1}`);
+  } else {
+    console.log("Error");
+    res.render("users/new", { firstName: req.body.firstName });
+  }
 });
 
 router
